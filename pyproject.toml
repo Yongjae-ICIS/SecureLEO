@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "satpls"
+version = "0.2.0"
+description = "Deep Learning-Based Secure Scheduling for LEO Satellite Networks"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Yongjae Lee", email = "yjlee@edu.hanbat.ac.kr"},
+    {name = "Taehoon Kim", email = "thkim@hanbat.ac.kr"},
+    {name = "Inkyu Bang", email = "ikbang@hanbat.ac.kr"},
+    {name = "Erdal Panayirci"},
+    {name = "H. Vincent Poor"},
+]
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+keywords = ["satellite", "physical-layer-security", "deep-learning", "set-transformer"]
+dependencies = [
+    "numpy>=1.21.0",
+    "torch>=1.12.0",
+    "matplotlib>=3.5.0",
+    "scipy>=1.7.0",
+    "tqdm>=4.62.0",
+    "pyyaml>=6.0",
+    "typer>=0.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[project.scripts]
+satpls = "satpls.cli:app"
+
+[project.urls]
+"Homepage" = "https://github.com/Yongjae-ICIS/SatPLS"
+"Bug Tracker" = "https://github.com/Yongjae-ICIS/SatPLS/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["satpls*"]
+
+[tool.black]
+line-length = 88
+target-version = ["py39", "py310", "py311"]
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "I", "N", "W", "UP"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"

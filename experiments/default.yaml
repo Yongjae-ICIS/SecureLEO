@@ -1,0 +1,50 @@
+# Default Experiment Configuration
+# SatPLS: Satellite Physical Layer Security Framework
+
+name: "default"
+description: "Default configuration matching paper parameters"
+
+system:
+  # Satellite configuration
+  num_visible_sats: 15
+  num_scheduled_sats: 10
+  num_data_sats: 2
+  num_sat_antennas: 1
+
+  # Antenna configuration
+  num_gbs_antennas: 2
+  num_eve_antennas: 2
+
+  # Channel parameters (Shadowed-Rician)
+  rician_k_factor: 3.0
+  nakagami_m_param: 5.0
+
+  # SNR configuration (dB)
+  snr_gbs_min_db: 0.0
+  snr_gbs_max_db: 20.0
+  snr_eve_db: 10.0
+
+  # Artificial Noise
+  an_power_ratio: 0.30
+
+model:
+  architecture: "set_transformer"
+  embed_dim: 128
+  num_heads: 4
+  num_encoder_layers: 2
+  ff_hidden_dim: 256
+  dropout: 0.1
+  num_pma_seeds: 1
+
+training:
+  num_samples: 100000
+  batch_size: 256
+  num_epochs: 12
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  ergodic_mc_samples: 100
+  device: "auto"
+  seed: 42
+  num_workers: 4
+  output_dir: "results"
+  checkpoint_dir: "checkpoints"
