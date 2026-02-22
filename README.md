@@ -58,7 +58,8 @@ SatPLS/
 │   └── benchmark.py        # Multi-baseline benchmarking + Plotting
 ├── experiments/
 │   └── default.yaml        # Default experiment configuration
-└── figures/                # Paper figures
+├── figures/                # Paper figures
+└── supplementary/          # Additional experimental results & technical details
 ```
 
 ---
@@ -191,6 +192,21 @@ python main.py train \
 | layers=1 | h=4, d=128, L=1 | 81.0 |
 | layers=2 (default) | h=4, d=128, L=2 | 81.9 |
 | layers=3 | h=4, d=128, L=3 | 82.2 |
+
+---
+
+## Supplementary Materials
+
+Due to the page limitations of IEEE WCL, additional experimental results and technical details are provided in the [`supplementary/`](supplementary/) directory:
+
+| Document | Description |
+|----------|-------------|
+| [Parameter Sensitivity Analysis](supplementary/parameter_sensitivity.md) | System parameter robustness across 12 configurations (N, K_d, M_e) |
+| [Performance Gap Analysis](supplementary/performance_gap_analysis.md) | SNR-wise gap decomposition: CSI gap vs. algorithm gap |
+| [Hyperparameter Ablation Study](supplementary/ablation_study.md) | Set Transformer architecture ablation (dim, heads, layers) |
+| [AN Satellite Configuration](supplementary/an_satellite_analysis.md) | Effect of AN satellite count (K_AN) on secrecy rate |
+| [Convergence Analysis](supplementary/convergence_analysis.md) | Training convergence over 50 epochs with 5 random seeds |
+| [AN Generation Protocol](supplementary/an_protocol.md) | Null-space computation and distributed AN protocol details |
 
 ---
 
