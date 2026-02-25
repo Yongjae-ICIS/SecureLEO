@@ -14,7 +14,7 @@ Due to the page limitations of IEEE WCL (4 pages), we provide additional experim
 
 | File | Reviewer Comment | Description |
 |------|-----------------|-------------|
-| [parameter_sensitivity.md](parameter_sensitivity.md) | R1.3 | System parameter sensitivity analysis across 12 configurations |
+| [parameter_sensitivity.md](parameter_sensitivity.md) | R1.3 | System parameter sensitivity analysis across 12 configurations + Deep Sets baseline comparison (1M-trial GPU simulation) |
 | [performance_gap_analysis.md](performance_gap_analysis.md) | R1.4, R2.3 | SNR-wise performance gap decomposition (CSI gap vs. algorithm gap) |
 | [ablation_study.md](ablation_study.md) | R1.5 | Set Transformer hyperparameter ablation study (9 configurations) |
 | [an_satellite_analysis.md](an_satellite_analysis.md) | R1.2 | AN satellite count analysis (K_AN variation) |

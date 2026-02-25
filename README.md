@@ -28,7 +28,8 @@ SatPLS is a deep learning-based **physical-layer security (PLS)** framework for 
 
 ### Performance Highlights
 
-- **83–93% of oracle-optimal** secrecy rate across diverse configurations
+- **93–96% of genie-aided** secrecy rate (Set Transformer, 1M-trial GPU simulation)
+- **Deep Sets baseline**: 64–68% of genie-aided — attention mechanism is essential
 - **2.6–3.7x improvement** over random scheduling baseline
 - **Sub-millisecond inference** vs. seconds for brute-force search
 - Robust across varying system parameters (N, K_d, M_e, K_AN)
@@ -161,9 +162,28 @@ python main.py train \
 
 ## Results
 
-### Secrecy Rate Performance (Model / Oracle)
+### Baseline Comparison (1M-Trial GPU Simulation, SNR = 10 dB)
 
-| Configuration | N | K_d | M_e | Model/Oracle (%) |
+| Config | N | K_d | M_e | Proposed/Genie-Aided (%) | DeepSets/Genie-Aided (%) | Random/Genie-Aided (%) |
+|--------|---|-----|-----|-------------------------|--------------------------|------------------------|
+| N12_Kd2_Me2 | 12 | 2 | 2 | **93.6** | 64.2 | 40.8 |
+| N15_Kd2_Me2 | 15 | 2 | 2 | **93.5** | 67.7 | 40.8 |
+| N18_Kd2_Me2 | 18 | 2 | 2 | **93.5** | 65.5 | 40.8 |
+| N15_Kd2_Me4 | 15 | 2 | 4 | **96.2** | 66.6 | 43.3 |
+
+<p align="center">
+  <img src="figures/fig_r13_secrecy_rate_varying_N.png" alt="Secrecy Rate varying N" width="800">
+  <br><em>Secrecy sum-rate comparison across N = {12, 15, 18}</em>
+</p>
+
+<p align="center">
+  <img src="figures/fig_r13_outage_varying_N.png" alt="Outage varying N" width="800">
+  <br><em>Secrecy outage probability across N = {12, 15, 18}</em>
+</p>
+
+### Secrecy Rate Performance (Model / Genie-Aided)
+
+| Configuration | N | K_d | M_e | Model/Genie-Aided (%) |
 |---------------|---|-----|-----|------------------|
 | N12_Kd2_Me2 | 12 | 2 | 2 | 81.8 |
 | N12_Kd2_Me4 | 12 | 2 | 4 | 75.5 |
@@ -175,7 +195,7 @@ python main.py train \
 
 ### CSI Gap Analysis
 
-| SNR (dB) | Oracle | Statistical | Model | Random | Statistical/Oracle (%) |
+| SNR (dB) | Genie-Aided | Statistical | Model | Random | Statistical/Genie-Aided (%) |
 |----------|--------|-------------|-------|--------|------------------------|
 | 0 | 0.63 | 0.44 | 0.10 | 0.01 | 69.8 |
 | 10 | 5.07 | 4.80 | 4.00 | 1.52 | 94.7 |
@@ -184,7 +204,7 @@ python main.py train \
 
 ### Set Transformer Ablation Study
 
-| Parameter | Value | Model/Oracle (%) |
+| Parameter | Value | Model/Genie-Aided (%) |
 |-----------|-------|------------------|
 | dim=64 | h=2, d=64, L=2 | 81.7 |
 | dim=128 (default) | h=4, d=128, L=2 | 82.1 |
@@ -224,7 +244,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgements
 
-- **Set Transformer**: [Lee et al., ICML 2019](https://arxiv.org/abs/1810.00825) — Permutation-invariant architecture
+- **Set Transformer**: [Lee et al., ICML 2019](https://arxiv.org/abs/1810.00825) — Attention-based permutation-invariant architecture
+- **Deep Sets**: [Zaheer et al., NeurIPS 2017](https://arxiv.org/abs/1703.06114) — Permutation-invariant baseline (without attention)
 - **Physical-Layer Security**: Wyner's wiretap channel model and extensions
 
 ---

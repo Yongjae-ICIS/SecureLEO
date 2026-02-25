@@ -21,13 +21,13 @@ We vary K_AN in {2, 4, 6, 8} while keeping K=10 and K_d=2 fixed (except K_AN=2, 
 | 6 | 4 | 10 | Balanced AN/data |
 | 8 | 2 | 10 | Maximum AN (default configuration) |
 
-For each configuration, we train a dedicated Set Transformer model and evaluate it against the oracle-optimal baseline.
+For each configuration, we train a dedicated Set Transformer model and evaluate it against the genie-aided baseline.
 
 ## Results
 
-### Model/Oracle Secrecy Rate Ratio
+### Model/Genie-Aided Secrecy Rate Ratio
 
-| K_AN | Model/Oracle (%) |
+| K_AN | Model/Genie-Aided (%) |
 |------|-----------------|
 | 2 | 93.4 |
 | 4 | 86.9 |
@@ -36,9 +36,9 @@ For each configuration, we train a dedicated Set Transformer model and evaluate 
 
 ### Analysis
 
-1. **All configurations achieve 80--93% of oracle**: The framework consistently performs well across different AN satellite counts, demonstrating robustness to the AN/data satellite ratio.
+1. **All configurations achieve 80--93% of the genie-aided upper bound**: The framework consistently performs well across different AN satellite counts, demonstrating robustness to the AN/data satellite ratio.
 
-2. **K_AN = 2 achieves highest ratio (93.4%)**: With fewer AN satellites, the scheduling problem has fewer degrees of freedom, making it easier for the model to approximate the oracle. However, the absolute secrecy rate may be lower due to weaker AN protection.
+2. **K_AN = 2 achieves highest ratio (93.4%)**: With fewer AN satellites, the scheduling problem has fewer degrees of freedom, making it easier for the model to approximate the genie-aided baseline. However, the absolute secrecy rate may be lower due to weaker AN protection.
 
 3. **K_AN = 8 (default) achieves 88.3%**: The default configuration provides a good balance between AN effectiveness and scheduling approximation quality.
 
