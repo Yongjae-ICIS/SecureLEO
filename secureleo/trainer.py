@@ -14,7 +14,7 @@ from torch.optim.lr_scheduler import CosineAnnealingLR
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
-from satpls.config import TrainingConfig
+from secureleo.config import TrainingConfig
 
 logger = logging.getLogger(__name__)
 

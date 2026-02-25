@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""CLI entry point for SatPLS framework.
+"""CLI entry point for SecureLEO framework.
 
 Usage:
     python main.py train --config experiments/default.yaml
@@ -15,11 +15,11 @@ from typing import Optional
 import torch
 import typer
 
-from satpls import __version__
-from satpls.config import ExperimentConfig, ModelConfig, SystemConfig, TrainingConfig
-from satpls.dataset import SatelliteDataset, create_data_loaders, generate_training_dataset
-from satpls.models import DeepSetsScheduler, SetTransformerScheduler
-from satpls.trainer import Trainer
+from secureleo import __version__
+from secureleo.config import ExperimentConfig, ModelConfig, SystemConfig, TrainingConfig
+from secureleo.dataset import SatelliteDataset, create_data_loaders, generate_training_dataset
+from secureleo.models import DeepSetsScheduler, SetTransformerScheduler
+from secureleo.trainer import Trainer
 
 logging.basicConfig(
     level=logging.INFO,
@@ -29,7 +29,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 app = typer.Typer(
-    name="satpls",
+    name="secureleo",
     help="Satellite Physical Layer Security - Deep Learning Scheduler",
     add_completion=False,
 )
@@ -65,7 +65,7 @@ def train(
     regenerate_data: bool = typer.Option(False, "--regenerate", help="Force data regeneration"),
 ) -> None:
     """Train a satellite scheduling model."""
-    logger.info(f"SatPLS v{__version__}")
+    logger.info(f"SecureLEO v{__version__}")
 
     if config_path and config_path.exists():
         config = ExperimentConfig.from_yaml(config_path)
@@ -154,7 +154,7 @@ def evaluate(
     output_dir: Path = typer.Option(Path("results"), help="Output directory"),
 ) -> None:
     """Evaluate a trained model."""
-    from satpls.benchmark import Benchmarker, plot_secrecy_rate
+    from secureleo.benchmark import Benchmarker, plot_secrecy_rate
 
     logger.info(f"Evaluating model: {model_path}")
 
@@ -190,7 +190,7 @@ def evaluate(
 @app.command()
 def version() -> None:
     """Show version and device information."""
-    print(f"SatPLS version {__version__}")
+    print(f"SecureLEO version {__version__}")
     print(f"PyTorch version {torch.__version__}")
     if torch.cuda.is_available():
         print(f"CUDA available: {torch.cuda.get_device_name(0)}")

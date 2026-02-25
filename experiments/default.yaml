@@ -1,5 +1,5 @@
 # Default Experiment Configuration
-# SatPLS: Satellite Physical Layer Security Framework
+# SecureLEO: Satellite Physical Layer Security Framework
 
 name: "default"
 description: "Default configuration matching paper parameters"

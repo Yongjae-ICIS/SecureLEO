@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "satpls"
+name = "secureleo"
 version = "0.2.0"
 description = "Deep Learning-Based Secure Scheduling for LEO Satellite Networks"
 readme = "README.md"
@@ -47,15 +47,15 @@ dev = [
 ]
 
 [project.scripts]
-satpls = "satpls.cli:app"
+secureleo = "secureleo.cli:app"
 
 [project.urls]
-"Homepage" = "https://github.com/Yongjae-ICIS/SatPLS"
-"Bug Tracker" = "https://github.com/Yongjae-ICIS/SatPLS/issues"
+"Homepage" = "https://github.com/Yongjae-ICIS/SecureLEO"
+"Bug Tracker" = "https://github.com/Yongjae-ICIS/SecureLEO/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["satpls*"]
+include = ["secureleo*"]
 
 [tool.black]
 line-length = 88

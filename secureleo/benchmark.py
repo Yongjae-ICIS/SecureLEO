@@ -10,15 +10,15 @@ import numpy as np
 import torch
 from tqdm import tqdm
 
-from satpls.config import SystemConfig
-from satpls.dataset import SatelliteEnvironment
-from satpls.scheduling import (
+from secureleo.config import SystemConfig
+from secureleo.dataset import SatelliteEnvironment
+from secureleo.scheduling import (
     get_an_union_indices,
     optimal_scheduling_oracle,
     optimal_scheduling_statistical,
     random_scheduling,
 )
-from satpls.signal import compute_secrecy_rate
+from secureleo.signal import compute_secrecy_rate
 
 logger = logging.getLogger(__name__)
 

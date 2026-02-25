@@ -1,4 +1,4 @@
-"""Configuration dataclasses for SatPLS framework."""
+"""Configuration dataclasses for SecureLEO framework."""
 from __future__ import annotations
 
 from dataclasses import dataclass, field

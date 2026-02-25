@@ -98,4 +98,4 @@ python main.py train --num-samples 40000 --num-epochs 12
 python main.py evaluate checkpoints/model.pt --num-trials 500
 ```
 
-The benchmark code is in [`satpls/benchmark.py`](../satpls/benchmark.py), which implements all four baselines (Genie-Aided, Statistical, Model, Random) and computes secrecy rates at configurable SNR points.
+The benchmark code is in [`secureleo/benchmark.py`](../secureleo/benchmark.py), which implements all four baselines (Genie-Aided, Statistical, Model, Random) and computes secrecy rates at configurable SNR points.

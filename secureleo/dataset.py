@@ -12,9 +12,9 @@ from numpy.random import Generator
 from torch.utils.data import DataLoader, Dataset, random_split
 from tqdm import tqdm
 
-from satpls.channel import create_eve_sampler, generate_channel_matrix
-from satpls.config import SystemConfig
-from satpls.scheduling import optimal_scheduling_statistical
+from secureleo.channel import create_eve_sampler, generate_channel_matrix
+from secureleo.config import SystemConfig
+from secureleo.scheduling import optimal_scheduling_statistical
 
 
 # ---------------------------------------------------------------------------

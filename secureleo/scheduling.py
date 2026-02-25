@@ -8,7 +8,7 @@ import numpy as np
 from numpy.random import Generator
 from numpy.typing import NDArray
 
-from satpls.signal import compute_secrecy_rate
+from secureleo.signal import compute_secrecy_rate
 
 
 def get_an_union_indices(

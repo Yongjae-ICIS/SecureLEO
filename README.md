@@ -1,4 +1,4 @@
-# SatPLS: Secure Scheduling for LEO Satellite Networks
+# SecureLEO: Secure Scheduling for LEO Satellite Networks
 
 [![Paper](https://img.shields.io/badge/Paper-IEEE%20Wireless%20Communications%20Letters-blue)](https://ieeexplore.ieee.org/)
 [![Python](https://img.shields.io/badge/Python-3.9+-green.svg)](https://www.python.org/)
@@ -15,7 +15,7 @@ Official implementation of **"Deep Learning-Based Secure Scheduling and Cooperat
 
 ## Overview
 
-SatPLS is a deep learning-based **physical-layer security (PLS)** framework for LEO satellite communication networks. It jointly optimizes satellite scheduling and cooperative artificial noise (AN) generation using **Set Transformer** architecture, operating with only **statistical eavesdropper CSI**.
+SecureLEO is a deep learning-based **physical-layer security (PLS)** framework for LEO satellite communication networks. It jointly optimizes satellite scheduling and cooperative artificial noise (AN) generation using **Set Transformer** architecture, operating with only **statistical eavesdropper CSI**.
 
 ### Key Features
 
@@ -43,11 +43,11 @@ SatPLS is a deep learning-based **physical-layer security (PLS)** framework for 
 ## Project Structure
 
 ```
-SatPLS/
+SecureLEO/
 ├── main.py                 # CLI entry point (train / evaluate / version)
 ├── pyproject.toml
 ├── requirements.txt
-├── satpls/                 # Main package (flat, ~1500 lines)
+├── secureleo/               # Main package (flat, ~1500 lines)
 │   ├── __init__.py         # Version & public API
 │   ├── config.py           # YAML-based experiment configuration
 │   ├── channel.py          # Shadowed-Rician fading channel generation
@@ -71,8 +71,8 @@ SatPLS/
 
 ```bash
 # Clone the repository
-git clone https://github.com/Yongjae-ICIS/SatPLS.git
-cd SatPLS
+git clone https://github.com/Yongjae-ICIS/SecureLEO.git
+cd SecureLEO
 
 # Create virtual environment
 python -m venv .venv
