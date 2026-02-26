@@ -15,7 +15,7 @@ For each configuration, we:
 2. Train both a **Set Transformer** model ($d=128, h=4, L=2$) and a **Deep Sets** model for 12 epochs
 3. Evaluate using the secrecy rate benchmark with Genie-Aided (brute-force with instantaneous Eve CSI), Proposed (Set Transformer), Deep Sets, and Random baselines
 
-We use **1,000,000 Monte Carlo trials** (500,000 for $M_e=4$ configurations due to memory constraints) with 50 MC samples per trial for ergodic rate estimation. All simulations are performed on an NVIDIA RTX 4090 GPU.
+We use **1,000,000 Monte Carlo trials** (500,000 for $M_e=4$ configurations due to memory constraints) with 50 MC samples per trial for ergodic rate estimation. All simulations are performed on an NVIDIA RTX A5000 GPU.
 
 The **Model/Genie-Aided ratio** measures how closely the learned model approximates the genie-aided scheduling that has access to instantaneous eavesdropper CSI.
 
