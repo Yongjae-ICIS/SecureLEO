@@ -32,7 +32,7 @@ SecureLEO is a deep learning-based **physical-layer security (PLS)** framework f
 - **Deep Sets baseline**: 64–68% of genie-aided — attention mechanism is essential
 - **2.6–3.7x improvement** over random scheduling baseline
 - **Sub-millisecond inference** vs. seconds for brute-force search
-- Robust across varying system parameters (N, K_d, M_e, K_AN)
+- Robust across varying system parameters ($N$, $K_d$, $M_e$, $K_{\text{AN}}$)
 
 <p align="center">
   <img src="figures/fig1_system_model.png" alt="System Model" width="500">
@@ -142,21 +142,21 @@ python main.py train \
 | `--num-layers` | Number of SAB layers | 2 |
 | `--lr` | Learning rate | 1e-3 |
 | `--mc-samples` | MC samples for ergodic rate | 100 |
-| `--num-data-sats` | Data satellites (K_d) | 2 |
+| `--num-data-sats` | Data satellites ($K_d$) | 2 |
 | `--device` | Device: auto, cpu, cuda, mps | auto |
 
 ### System Parameters
 
 | Parameter | Symbol | Default | Description |
 |-----------|--------|---------|-------------|
-| Visible satellites | N | 15 | LEO satellites in view |
-| Scheduled satellites | K | 10 | Selected for transmission |
-| Data satellites | K_d | 2 | Transmitting data |
-| AN satellites | K_AN | K - K_d | Transmitting artificial noise |
-| GBS antennas | M_b | 2 | Zero-forcing receiver |
-| Eve antennas | M_e | 2 | MMSE receiver |
-| Rician K-factor | K_SR | 3 | Shadowed-Rician parameter |
-| Nakagami m | m | 5 | Shadowed-Rician parameter |
+| Visible satellites | $N$ | 15 | LEO satellites in view |
+| Scheduled satellites | $K$ | 10 | Selected for transmission |
+| Data satellites | $K_d$ | 2 | Transmitting data |
+| AN satellites | $K_{\text{AN}}$ | $K - K_d$ | Transmitting artificial noise |
+| GBS antennas | $M_b$ | 2 | Zero-forcing receiver |
+| Eve antennas | $M_e$ | 2 | MMSE receiver |
+| Rician K-factor | $K_{\text{SR}}$ | 3 | Shadowed-Rician parameter |
+| Nakagami m | $m$ | 5 | Shadowed-Rician parameter |
 
 ---
 
@@ -164,7 +164,7 @@ python main.py train \
 
 ### Baseline Comparison (1M-Trial GPU Simulation, SNR = 10 dB)
 
-| Config | N | K_d | M_e | Proposed/Genie-Aided (%) | DeepSets/Genie-Aided (%) | Random/Genie-Aided (%) |
+| Config | $N$ | $K_d$ | $M_e$ | Proposed/Genie-Aided (%) | DeepSets/Genie-Aided (%) | Random/Genie-Aided (%) |
 |--------|---|-----|-----|-------------------------|--------------------------|------------------------|
 | N12_Kd2_Me2 | 12 | 2 | 2 | **93.6** | 64.2 | 40.8 |
 | N15_Kd2_Me2 | 15 | 2 | 2 | **93.5** | 67.7 | 40.8 |
@@ -183,7 +183,7 @@ python main.py train \
 
 ### Secrecy Rate Performance (Model / Genie-Aided)
 
-| Configuration | N | K_d | M_e | Model/Genie-Aided (%) |
+| Configuration | $N$ | $K_d$ | $M_e$ | Model/Genie-Aided (%) |
 |---------------|---|-----|-----|------------------|
 | N12_Kd2_Me2 | 12 | 2 | 2 | 81.8 |
 | N12_Kd2_Me4 | 12 | 2 | 4 | 75.5 |
@@ -206,12 +206,12 @@ python main.py train \
 
 | Parameter | Value | Model/Genie-Aided (%) |
 |-----------|-------|------------------|
-| dim=64 | h=2, d=64, L=2 | 81.7 |
-| dim=128 (default) | h=4, d=128, L=2 | 82.1 |
-| dim=256 | h=4, d=256, L=2 | 82.1 |
-| layers=1 | h=4, d=128, L=1 | 81.0 |
-| layers=2 (default) | h=4, d=128, L=2 | 81.9 |
-| layers=3 | h=4, d=128, L=3 | 82.2 |
+| $d=64$ | $h=2, d=64, L=2$ | 81.7 |
+| $d=128$ (default) | $h=4, d=128, L=2$ | 82.1 |
+| $d=256$ | $h=4, d=256, L=2$ | 82.1 |
+| $L=1$ | $h=4, d=128, L=1$ | 81.0 |
+| $L=2$ (default) | $h=4, d=128, L=2$ | 81.9 |
+| $L=3$ | $h=4, d=128, L=3$ | 82.2 |
 
 ---
 
@@ -221,10 +221,10 @@ Due to the page limitations of IEEE WCL, additional experimental results and tec
 
 | Document | Description |
 |----------|-------------|
-| [Parameter Sensitivity Analysis](supplementary/parameter_sensitivity.md) | System parameter robustness across 12 configurations (N, K_d, M_e) |
+| [Parameter Sensitivity Analysis](supplementary/parameter_sensitivity.md) | System parameter robustness across 12 configurations ($N$, $K_d$, $M_e$) |
 | [Performance Gap Analysis](supplementary/performance_gap_analysis.md) | SNR-wise gap decomposition: CSI gap vs. algorithm gap |
-| [Hyperparameter Ablation Study](supplementary/ablation_study.md) | Set Transformer architecture ablation (dim, heads, layers) |
-| [AN Satellite Configuration](supplementary/an_satellite_analysis.md) | Effect of AN satellite count (K_AN) on secrecy rate |
+| [Hyperparameter Ablation Study](supplementary/ablation_study.md) | Set Transformer architecture ablation ($d$, $h$, $L$) |
+| [AN Satellite Configuration](supplementary/an_satellite_analysis.md) | Effect of AN satellite count ($K_{\text{AN}}$) on secrecy rate |
 | [Convergence Analysis](supplementary/convergence_analysis.md) | Training convergence over 50 epochs with 5 random seeds |
 | [AN Generation Protocol](supplementary/an_protocol.md) | Null-space computation and distributed AN protocol details |
 
