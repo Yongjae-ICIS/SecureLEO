@@ -8,9 +8,9 @@ We conduct a systematic ablation study by varying one hyperparameter at a time w
 
 | Hyperparameter | Symbol | Default | Tested Values |
 |----------------|--------|---------|---------------|
-| Embedding dimension | d | 128 | {64, 128, 256} |
-| Number of attention heads | h | 4 | {2, 4, 8} |
-| Number of SAB layers | L | 2 | {1, 2, 3} |
+| Embedding dimension | $d$ | $128$ | $\{64, 128, 256\}$ |
+| Number of attention heads | $h$ | $4$ | $\{2, 4, 8\}$ |
+| Number of SAB layers | $L$ | $2$ | $\{1, 2, 3\}$ |
 
 **Evaluation metrics:**
 - **Scheduling Accuracy (%)**: Percentage of test samples where the model selects the exact same satellite subset as the genie-aided baseline
@@ -20,7 +20,7 @@ We conduct a systematic ablation study by varying one hyperparameter at a time w
 
 ### Full Results Table
 
-| Varied Param | Value | Heads (h) | Dim (d) | Layers (L) | Scheduling Accuracy (%) | Model/Genie-Aided Secrecy Rate (%) |
+| Varied Param | Value | Heads ($h$) | Dim ($d$) | Layers ($L$) | Scheduling Accuracy (%) | Model/Genie-Aided Secrecy Rate (%) |
 |-------------|-------|-----------|---------|------------|------------------------|-------------------------------|
 | dim | 64 | 2 | 64 | 2 | 87.4 | 81.7 |
 | dim | **128** | 4 | 128 | 2 | **88.7** | **82.1** |
@@ -36,42 +36,42 @@ We conduct a systematic ablation study by varying one hyperparameter at a time w
 
 ### Analysis by Hyperparameter
 
-#### Embedding Dimension (d)
+#### Embedding Dimension ($d$)
 
-| d | Accuracy (%) | Model/Genie-Aided (%) | Parameters |
+| $d$ | Accuracy (%) | Model/Genie-Aided (%) | Parameters |
 |---|-------------|-----------------|------------|
 | 64 | 87.4 | 81.7 | ~33K |
 | 128 | 88.7 | 82.1 | ~131K |
 | 256 | 88.8 | 82.1 | ~524K |
 
-Increasing d from 64 to 128 yields a meaningful improvement (+0.4% secrecy rate ratio). However, further doubling to d=256 provides **no additional gain** while quadrupling the parameter count. The choice of d=128 offers the best **efficiency-performance tradeoff**.
+Increasing $d$ from 64 to 128 yields a meaningful improvement (+0.4% secrecy rate ratio). However, further doubling to $d=256$ provides **no additional gain** while quadrupling the parameter count. The choice of $d=128$ offers the best **efficiency-performance tradeoff**.
 
-#### Number of Attention Heads (h)
+#### Number of Attention Heads ($h$)
 
-| h | Accuracy (%) | Model/Genie-Aided (%) |
+| $h$ | Accuracy (%) | Model/Genie-Aided (%) |
 |---|-------------|-----------------|
 | 2 | 88.7 | 80.9 |
 | 4 | 88.8 | 81.9 |
 | 8 | 88.8 | 81.8 |
 
-Accuracy is nearly identical across all head counts. The Model/Genie-Aided ratio peaks at h=4, with diminishing returns for h=8. This suggests that **4 attention heads** are sufficient to capture inter-satellite interactions.
+Accuracy is nearly identical across all head counts. The Model/Genie-Aided ratio peaks at $h=4$, with diminishing returns for $h=8$. This suggests that **4 attention heads** are sufficient to capture inter-satellite interactions.
 
-#### Number of SAB Layers (L)
+#### Number of SAB Layers ($L$)
 
-| L | Accuracy (%) | Model/Genie-Aided (%) |
+| $L$ | Accuracy (%) | Model/Genie-Aided (%) |
 |---|-------------|-----------------|
 | 1 | 84.9 | 81.0 |
 | 2 | 88.5 | 81.9 |
 | 3 | 88.6 | 82.2 |
 
-The number of layers has the **largest impact** among the three hyperparameters. Going from L=1 to L=2 yields a +3.6% accuracy improvement and +0.9% secrecy rate ratio improvement. L=3 provides marginal additional gain (+0.1% accuracy, +0.3% secrecy rate ratio) at the cost of increased computation. **L=2 provides the best tradeoff**.
+The number of layers has the **largest impact** among the three hyperparameters. Going from $L=1$ to $L=2$ yields a +3.6% accuracy improvement and +0.9% secrecy rate ratio improvement. $L=3$ provides marginal additional gain (+0.1% accuracy, +0.3% secrecy rate ratio) at the cost of increased computation. **$L=2$ provides the best tradeoff**.
 
 ## Key Findings
 
 1. **Stable performance**: Model/Genie-Aided secrecy rate ratio ranges from 80.9% to 82.2% across all 9 configurations, indicating that the framework is **not sensitive to hyperparameter choices**.
 
-2. **Layer count matters most**: Among the three hyperparameters, the number of SAB layers has the largest impact (+3.6% accuracy from L=1 to L=2), suggesting that **depth is more important than width** for satellite scheduling.
+2. **Layer count matters most**: Among the three hyperparameters, the number of SAB layers has the largest impact (+3.6% accuracy from $L=1$ to $L=2$), suggesting that **depth is more important than width** for satellite scheduling.
 
-3. **Diminishing returns**: Performance saturates at the default configuration (d=128, h=4, L=2). Larger models do not yield meaningful improvements, confirming that the chosen configuration is **efficient and near-optimal**.
+3. **Diminishing returns**: Performance saturates at the default configuration ($d=128$, $h=4$, $L=2$). Larger models do not yield meaningful improvements, confirming that the chosen configuration is **efficient and near-optimal**.
 
-4. **Default configuration is well-justified**: (d=128, h=4, L=2) achieves 82.1% Model/Genie-Aided secrecy rate with a compact model, offering the best balance between performance and computational cost.
+4. **Default configuration is well-justified**: ($d=128$, $h=4$, $L=2$) achieves 82.1% Model/Genie-Aided secrecy rate with a compact model, offering the best balance between performance and computational cost.

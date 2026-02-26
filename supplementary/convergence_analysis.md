@@ -13,7 +13,7 @@ We analyze the training convergence of the proposed Set Transformer-based schedu
 
 | Parameter | Value |
 |-----------|-------|
-| Architecture | Set Transformer (d=128, h=4, L=2) |
+| Architecture | Set Transformer ($d=128$, $h=4$, $L=2$) |
 | Training samples | 40,000 |
 | Validation split | 20% (8,000 samples) |
 | Epochs | 50 |
@@ -66,7 +66,7 @@ While providing formal convergence guarantees for deep learning models remains a
 
 2. **Permutation-invariant architecture**: The Set Transformer's permutation invariance is a strong inductive bias that matches the structure of the satellite scheduling problem (satellite ordering is arbitrary). This reduces the effective hypothesis space and facilitates convergence.
 
-3. **Finite discrete output space**: The scheduling problem has a finite number of possible outputs (C(N,K) combinations), which bounds the complexity of the learned mapping.
+3. **Finite discrete output space**: The scheduling problem has a finite number of possible outputs ($\binom{N}{K}$ combinations), which bounds the complexity of the learned mapping.
 
 4. **Empirical evidence**: Consistent convergence across 5 random seeds with low variance (std = 0.22%) provides strong empirical evidence of stable convergence behavior.
 

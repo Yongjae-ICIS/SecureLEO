@@ -16,7 +16,7 @@ The genie-aided baseline uses **instantaneous eavesdropper CSI**, which is unava
 | Baseline | Eve CSI | Search Method | Description |
 |----------|---------|---------------|-------------|
 | **Genie-Aided** | Instantaneous | Brute-force | Upper bound: knows exact Eve channel for each realization |
-| **Statistical** | Statistical (MC) | Brute-force | Best achievable with statistical CSI: exhaustive search over all C(N,K) combinations using MC-averaged ergodic secrecy rate |
+| **Statistical** | Statistical (MC) | Brute-force | Best achievable with statistical CSI: exhaustive search over all $\binom{N}{K}$ combinations using MC-averaged ergodic secrecy rate |
 | **Model** | Statistical (MC) | Set Transformer | Proposed method: learned scheduling with statistical CSI |
 | **Random** | N/A | Random selection | Lower bound: uniformly random satellite scheduling |
 
@@ -80,11 +80,11 @@ The Model (Set Transformer) achieves:
 
 1. **CSI gap is small**: Statistical CSI achieves 94--98% of the genie-aided performance at practical SNR values (>= 10 dB), confirming that ergodic secrecy rate maximization is a sound approach when instantaneous eavesdropper CSI is unavailable.
 
-2. **Algorithm gap is the dominant component**: At SNR >= 10 dB, approximately 75% of the total gap is attributable to the algorithm approximation. However, this tradeoff is justified by the **massive computational advantage**: the Set Transformer provides scheduling decisions in sub-millisecond time, compared to seconds or minutes for brute-force search over C(N,K) combinations.
+2. **Algorithm gap is the dominant component**: At SNR >= 10 dB, approximately 75% of the total gap is attributable to the algorithm approximation. However, this tradeoff is justified by the **massive computational advantage**: the Set Transformer provides scheduling decisions in sub-millisecond time, compared to seconds or minutes for brute-force search over $\binom{N}{K}$ combinations.
 
 3. **Practical significance**: Despite the algorithm gap, the Model achieves 2.6--3.7x higher secrecy rate than Random scheduling, demonstrating substantial practical value.
 
-4. **Computational efficiency**: For the default configuration (N=15, K=10), brute-force requires evaluating C(15,10) = 3003 combinations with MC sampling each. The Set Transformer replaces this with a single forward pass (<1 ms on GPU).
+4. **Computational efficiency**: For the default configuration ($N=15$, $K=10$), brute-force requires evaluating $\binom{15}{10} = 3003$ combinations with MC sampling each. The Set Transformer replaces this with a single forward pass (<1 ms on GPU).
 
 ## Source Code
 
