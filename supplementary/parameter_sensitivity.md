@@ -57,24 +57,24 @@ The proposed Set Transformer achieves **93--96%** of the genie-aided upper bound
 
 <p align="center">
   <img src="../figures/fig_r13_secrecy_rate_varying_N.png" alt="Secrecy Rate varying N" width="800">
-  <br><em>Secrecy sum-rate comparison for varying $N$ ($N=12, 15, 18$) with $K_d=2$, $M_e=2$</em>
+  <br><em>Secrecy sum-rate comparison for varying N (N=12, 15, 18) with K_d=2, M_e=2</em>
 </p>
 
 <p align="center">
   <img src="../figures/fig_r13_secrecy_rate_varying_Me.png" alt="Secrecy Rate varying Me" width="600">
-  <br><em>Secrecy sum-rate comparison for varying $M_e$ ($M_e=2, 4$) with $N=15$, $K_d=2$</em>
+  <br><em>Secrecy sum-rate comparison for varying M_e (M_e=2, 4) with N=15, K_d=2</em>
 </p>
 
 ### Secrecy Outage Probability Comparison
 
 <p align="center">
   <img src="../figures/fig_r13_outage_varying_N.png" alt="Outage varying N" width="800">
-  <br><em>Secrecy outage probability for varying $N$ ($N=12, 15, 18$) with $K_d=2$, $M_e=2$</em>
+  <br><em>Secrecy outage probability for varying N (N=12, 15, 18) with K_d=2, M_e=2</em>
 </p>
 
 <p align="center">
   <img src="../figures/fig_r13_outage_varying_Me.png" alt="Outage varying Me" width="600">
-  <br><em>Secrecy outage probability for varying $M_e$ ($M_e=2, 4$) with $N=15$, $K_d=2$</em>
+  <br><em>Secrecy outage probability for varying M_e (M_e=2, 4) with N=15, K_d=2</em>
 </p>
 
 The proposed Set Transformer consistently achieves 1--2 orders of magnitude lower outage probability compared to Deep Sets and Random across all configurations.
