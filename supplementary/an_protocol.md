@@ -95,32 +95,10 @@ Since the eavesdropper's channel g_j is **independent** of the legitimate channe
 
 ## Protocol Diagram
 
-```
-Phase 1: Pilot Broadcast (GBS -> Satellites)
-==============================================
-  GBS ---[pilot]---> Satellite 1 (data)     -> estimates h_1
-  GBS ---[pilot]---> Satellite 2 (data)     -> estimates h_2
-  GBS ---[pilot]---> Satellite 3 (AN)       -> estimates h_3
-  GBS ---[pilot]---> Satellite 4 (AN)       -> estimates h_4
-  ...
-  GBS ---[pilot]---> Satellite K (AN)       -> estimates h_K
-
-Phase 2: Data + AN Transmission (Satellites -> GBS, Eve)
-==============================================
-  Satellite 1 ---[data s_1]-----------> GBS (desired signal)
-  Satellite 2 ---[data s_2]-----------> GBS (desired signal)
-  Satellite 3 ---[AN w_3 in Null(h_3)]-> GBS (zero interference)
-  Satellite 4 ---[AN w_4 in Null(h_4)]-> GBS (zero interference)
-  ...                                    |
-  Satellite K ---[AN w_K in Null(h_K)]-> GBS (zero interference)
-                                         |
-                        Eve (receives data + AN as interference)
-
-Phase 3: Signal Processing
-==============================================
-  GBS: ZF receiver -> decode s_1, s_2 (AN-free)
-  Eve: MMSE receiver -> decode s_1, s_2 (AN-corrupted, degraded SINR)
-```
+<p align="center">
+  <img src="../figures/an_protocol_seq.png" alt="AN Generation Protocol" width="700">
+  <br><em>The proposed AN coefficient generation and transmission protocol</em>
+</p>
 
 ## Distributed Computation
 
