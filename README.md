@@ -1,6 +1,7 @@
 # SecureLEO: Secure Scheduling for LEO Satellite Networks
 
-[![Paper](https://img.shields.io/badge/Paper-IEEE%20Wireless%20Communications%20Letters-blue)](https://ieeexplore.ieee.org/)
+[![Paper](https://img.shields.io/badge/Paper-IEEE%20WCL-blue)](https://doi.org/10.1109/LWC.2026.3680914)
+[![DOI](https://img.shields.io/badge/DOI-10.1109%2FLWC.2026.3680914-orange)](https://doi.org/10.1109/LWC.2026.3680914)
 [![Python](https://img.shields.io/badge/Python-3.9+-green.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-1.12+-red.svg)](https://pytorch.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -9,7 +10,9 @@ Official implementation of **"Deep Learning-Based Secure Scheduling and Cooperat
 
 > **Authors:** Yongjae Lee (Student Member, IEEE), Taehoon Kim (Member, IEEE), Inkyu Bang (Member, IEEE), Erdal Panayirci (Life Fellow, IEEE), and H. Vincent Poor (Life Fellow, IEEE)
 >
-> **Submitted to:** IEEE Wireless Communications Letters (under review)
+> **Published in:** IEEE Wireless Communications Letters
+>
+> **DOI:** [10.1109/LWC.2026.3680914](https://doi.org/10.1109/LWC.2026.3680914)
 
 ---
 
@@ -232,7 +235,17 @@ Due to the page limitations of IEEE WCL, additional experimental results and tec
 
 ## Citation
 
-*Citation information will be added upon publication.*
+If you find this work useful, please cite:
+
+```bibtex
+@article{lee2026secureLEO,
+  author    = {Lee, Yongjae and Kim, Taehoon and Bang, Inkyu and Panayirci, Erdal and Poor, H. Vincent},
+  title     = {Deep Learning-Based Secure Scheduling and Cooperative Artificial Noise Generation in LEO Satellite Networks},
+  journal   = {IEEE Wireless Communications Letters},
+  year      = {2026},
+  doi       = {10.1109/LWC.2026.3680914}
+}
+```
 
 ---
 
